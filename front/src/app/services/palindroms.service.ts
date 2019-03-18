@@ -9,7 +9,7 @@ import {Observable, throwError, of} from 'rxjs';
   providedIn: 'root'
 })
 export class PalindromsService {
-    apiUrl= 'http://test.pronpa.ru/';
+    apiUrl= 'http://test.pronpa.ru/index.php';
     Paliandroms = new Paliandroms('');
     Paliandrom: Paliandroms[];
 
