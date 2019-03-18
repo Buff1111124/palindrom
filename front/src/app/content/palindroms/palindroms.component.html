@@ -1,0 +1,32 @@
+<h3 class="text-center text-white">
+        <b>
+            Введите любое слово, предложение или абзац, любой текст, и если в 
+            этом тексте есть палиндром, то ниже будет ввыведен перечень всех 
+            присутствующих в тексте палиндром!
+        </b>
+</h3>
+<br>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+        {{error}}
+</div>
+<form (ngSubmit)="onSub(c)" #c="ngForm" >
+    <div *ngIf="text.invalid && (text.dirty || text.touched)"
+        class="alert alert-danger">
+        <div *ngIf="text.errors.required">
+            Поле обязательно для заполнения!
+        </div>
+    </div>
+    <input type="text"  id="text" class="form-control"
+        required autofocus 
+        [(ngModel)]="Paliandroms.text"  name="text"
+        #text="ngModel">
+    <br>
+    <input type="submit" class="btn btn-primary btn-lg btn-block"
+            value="Найти" [disabled]="!c.form.valid">
+</form>
+<br>
+<div *ngFor="let item of Paliandrom">
+    <p class="text-white">
+    Палиндром: {{item.palindrom}}
+    </p>
+</div>
